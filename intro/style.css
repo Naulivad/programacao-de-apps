@@ -1,0 +1,61 @@
+
+body{
+    background-color: blueviolet;
+    padding: 64px;
+}
+
+div.content{
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    box-sizing: border-box;
+    justify-content: center;
+  
+
+}
+
+div.container{
+    background-color: chartreuse;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 64px 56px 44px 30px;
+}
+
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 100pt;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+
+p{
+    font-size: 32px;
+    color: white;
+}
+
+a{
+   
+      font-size: 32px;
+    background-color: white;
+    padding: 16px;
+    border-radius: 8px;
+    transition: padding 2s;
+    cursor: crosshair;
+}
+
+h4{
+    font-size: 32px;
+    color: white;
+}
+
+span{
+ font-size: 64px;
+    color: white
+}
+a:hover{
+    background-color: black;
+    padding: 24px;
+}
+
