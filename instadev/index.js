@@ -14,7 +14,7 @@ var posts = [
             likes: 0,
             isLike: false,
             data: "2026-09-28T19:24:00",
-            Comments: [
+            comments: [
                 {
                     id: 1,
                     username: "bella_wyk",
@@ -35,11 +35,35 @@ var posts = [
 // FUNÇOES JS
 const feed = document.getElementById("feed");
 
+const botaoAbrir = document.getElementById("botaoAbrirModal")
+const botaoFechar = document.getElementById("botaoFecharModal")
+const modal = document.getElementById("modalPost")
+
+botaoAbrir.addEventListener("click", () => {
+    modal.classList.remove("hidden")
+})
+
+botaoFechar.addEventListener("click", () =>{
+    modal.classList.add("hidden");
+})
+
+
 function renderPost(){
     feed.innerHTML = "";
 
     for(var i = 0; i < posts.length; i ++){
         var article = document.createElement("article")
+
+        var commentsHTML = "";
+        for(var comment of posts[i].comments){
+            commentsHTML += `
+                 <p class="comment">
+                        <strong>${comment.username}</strong>
+                        ${comment.text}
+                    </p>
+            `;
+        }
+
         article.innerHTML = `
          <header class="post-header">
                     <div class="post-user">
@@ -64,12 +88,10 @@ function renderPost(){
                     <strong>${posts[i].user.likes}</strong>
 
                     <p><strong>${posts[i].user.nickname}</strong ${posts[i].legend}.</p>
+
                     <a href="#">Ver todos os 67 comentários.</a>
 
-                    <p class="comment">
-                        <strong>Bella.wyk</strong>
-                        eitcha, la ele
-                    </p>
+                   ${commentsHTML}
 
                     <span class="post-date">Há 2 horas</span>
                 </div>
