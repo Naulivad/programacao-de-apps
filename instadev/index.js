@@ -1,4 +1,4 @@
-// BD
+// FAKE BD
 
 var posts = [
     {
@@ -9,7 +9,7 @@ var posts = [
                 profileImg: "http://github.com/Naulivad.png"
             },
 
-            image: "https://media.discordapp.net/attachments/1119016883442696293/1552101177297076224/544887226241896293f4909e6e487f09.jpg?ex=6ab4625d&is=6ab310dd&hm=3400d76032b6d71c12dee7a45070b43610e6bc169606e5a5dcd2d7ea63c1ccbf&=&format=webp",
+            image: "https://media.discordapp.net/attachments/1119016883442696293/1552101177297076224/544887226241896293f4909e6e487f09.jpg?ex=6ac62e9d&is=6ac4dd1d&hm=d498d2ef756339f985895673a9eeeef0fd73815f6d69a16303c94ae185695f20&=&format=webp",
             legend: "eitcha, la ele",
             likes: 0,
             isLike: false,
@@ -37,7 +37,9 @@ const feed = document.getElementById("feed");
 
 const botaoAbrir = document.getElementById("botaoAbrirModal")
 const botaoFechar = document.getElementById("botaoFecharModal")
+const botaoPublicar = document.getElementById("botaoPublicar")
 const modal = document.getElementById("modalPost")
+const botaolike = document.getElement
 
 botaoAbrir.addEventListener("click", () => {
     modal.classList.remove("hidden")
@@ -47,7 +49,51 @@ botaoFechar.addEventListener("click", () =>{
     modal.classList.add("hidden");
 })
 
+botaoPublicar.addEventListener("click", () =>{
+    //PEGAR INFOS
+    var URLimage = document.getElementById("imgPost").value;
+    var legenda = document.getElementById("legendPost").value;
 
+    //CRIAR POST
+    var newPost = {
+        id: posts[posts.length - 1].id + 1,
+        user: {
+            nickname: "Naulivad",
+            local: "Tijucas - SC",
+            profileImg: "http://github.com/Naulivad.png",
+        },
+        image: URLimage,
+        legend:legenda,
+        likes: 0,
+        isLike: false,
+        data: new Date().toISOString(),
+        comments: [] 
+    }
+
+    //ADD AOS POSTS
+
+    posts.push(newPost)
+    renderPost();
+    //RE-RENDERIZAR A TELA
+    modal.classList.add("hidden")
+
+    document.getElementById("imgPost").value = "";
+    document.getElementById("legendPost").value = "";
+})
+
+function curtirPost(idPost){
+    for(var i = 0; i < posts.length; i++){
+    if(idPost === posts[i].id){
+        posts[i].isLike =  !posts[i].isLike;
+        posts[i].likes = posts[i].isLike == true 
+        ? posts[i].likes + 1 
+        : posts[i].likes - 1;
+        renderPosts()
+    }
+}
+    }
+
+        
 function renderPost(){
     feed.innerHTML = "";
 
@@ -78,7 +124,7 @@ function renderPost(){
                 <img src="${posts[i].image}" class="post-image">
                 <div class="post-actions">
                     <div>
-                        <button>♡</button>
+                        <button class= "${posts[i].isLike === true ? 'liked' : ''}"onclick= "curtirPost (${posts[i].id}">♡</button>
                         <button>○</button>
                         <button>➤</button>
                     </div>
