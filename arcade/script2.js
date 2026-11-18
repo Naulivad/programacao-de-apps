@@ -14,6 +14,15 @@ botaoPublicar.addEventListener("click", () => {
         emoji: newEmoji,
         cor: newColor,
     }
-    jogos.push(newGame);
+
+    var jogosSalvos = JSON.parse(localStorage.getItem("jogos")) || [];
+
+    jogosSalvos.push(newGame);
+
+    localStorage.setItem("jogos", JSON.stringify(jogosSalvos));
+
+    window.location.href = "index.html";
+
+
 
 })

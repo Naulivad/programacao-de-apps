@@ -9,6 +9,10 @@ var jogos = [
     { nome: 'Tetris', categoria: 'Estratégia', descricao: 'Encaixe as peças e faça pontos.', emoji: '🧩', cor: '#6651ad' }
 ];
 
+var jogosSalvos = JSON.parse(localStorage.getItem("jogos")) || [];
+
+jogos.push(...jogosSalvos);
+
 
 const gradeJogos = document.querySelector("#grade-jogos");
 const botoes = document.querySelectorAll('[data-categoria]');

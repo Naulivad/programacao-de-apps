@@ -210,11 +210,104 @@ header h1 span {
     }
 }
 
-#cadastrar{
-    background-color: #09da25;
-    padding: 10px;
-}
-.cadastroBotaoSite{
-    color: #000000;
+#cadastrar {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    background: #09eb27;
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(9, 235, 39, 0.25);
+    transition: 0.2s;
 }
 
+#cadastrar:hover {
+    transform: translateY(-3px);
+    background: #14ff32;
+    box-shadow: 0 8px 25px rgba(9, 235, 39, 0.4);
+}
+
+.cadastroBotaoSite {
+    display: block;
+    color: #001004;
+    padding: 13px 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.modal-header {
+    margin: 60px auto 25px;
+    width: 90%;
+    max-width: 600px;
+}
+
+.modal-header h2 {
+    font-size: 32px;
+    margin: 0;
+    color: #09eb27;
+}
+
+.modal-body {
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    background: #171b30;
+    border: 1px solid #252a45;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.modal-body input,
+.modal-body textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 13px;
+    border: 1px solid #414560;
+    border-radius: 8px;
+    background: #1d2239;
+    color: white;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal-body input:focus,
+.modal-body textarea:focus {
+    border-color: #09eb27;
+    box-shadow: 0 0 0 2px rgba(9, 235, 39, 0.1);
+}
+
+.modal-body textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.modal-body label {
+    display: block;
+    margin-bottom: 8px;
+    color: #b8bfd3;
+}
+
+#cor {
+    height: 45px;
+    padding: 4px !important;
+}
+
+#botaoPublicar {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #09eb27;
+    color: #001004;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#botaoPublicar:hover {
+    background: #14ff32;
+    transform: translateY(-2px);
+}
