@@ -37,7 +37,7 @@ header h1 {
 }
 
 header h1 span {
-    color: #b58aff;
+    color: #09eb27;
 }
 
 /*--BANNER--*/
@@ -48,7 +48,7 @@ header h1 span {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(110deg, #51318a, #25264a);
+    background: linear-gradient(110deg, #29bb4e, #001803);
 }
 
 .banner h2 {
@@ -63,7 +63,7 @@ header h1 span {
 
 .botao {
     display: inline-block;
-    background-color: #ac80ff;
+    background-color: hsl(145, 73%, 45%);
     padding: 10px 18px;
     border-radius: 8px;
     font-weight: bold;
@@ -117,7 +117,8 @@ header h1 span {
 }
 
 .categoria button.ativo {
-    background-color: #875ce3;
+    background-color: #09eb27;
+    color: #011604;
 }
 
 /*- GRADE DE JOGOS--*/
@@ -208,3 +209,12 @@ header h1 span {
         display: flex;
     }
 }
+
+#cadastrar{
+    background-color: #09da25;
+    padding: 10px;
+}
+.cadastroBotaoSite{
+    color: #000000;
+}
+

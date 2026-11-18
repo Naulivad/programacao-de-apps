@@ -1,4 +1,4 @@
-const jogos = [
+var jogos = [
     { nome: 'Minecraft', categoria: 'Aventura', descricao: 'Construa e explore mundos.', emoji: '⛏️', cor: '#276448' },
     { nome: 'Mario Kart', categoria: 'Corrida', descricao: 'Corridas com muita diversão.', emoji: '🏎️', cor: '#bf513c' },
     { nome: 'Stardew Valley', categoria: 'Aventura', descricao: 'Cuide da sua própria fazenda.', emoji: '🌻', cor: '#b7833c' },
@@ -9,12 +9,33 @@ const jogos = [
     { nome: 'Tetris', categoria: 'Estratégia', descricao: 'Encaixe as peças e faça pontos.', emoji: '🧩', cor: '#6651ad' }
 ];
 
+
 const gradeJogos = document.querySelector("#grade-jogos");
+const botoes = document.querySelectorAll('[data-categoria]');
+const busca = document.querySelector("#busca")
+
+
+
+
+
+let categotiaSelecionada = "Todos";
 
 function mostrarJogos() {
     gradeJogos.innerHTML = "";
 
+
+
     jogos.forEach(jogo => {
+
+        const nomeCombina = jogo.nome.toLocaleLowerCase().includes(busca.value.toLocaleLowerCase())
+
+        const categoriaCombina = categotiaSelecionada === "Todos" || categotiaSelecionada === jogo.categoria;
+
+        if (!categoriaCombina || !nomeCombina) {
+            return;
+
+        }
+
         gradeJogos.innerHTML += `
             <article class="card">
                 <div class="capa" style="background: ${jogo.cor}">${jogo.emoji}</div>
@@ -28,5 +49,15 @@ function mostrarJogos() {
     })
 }
 
+busca.addEventListener("input", mostrarJogos)
+
+botoes.forEach(botao => {
+    botao.addEventListener('click', () => {
+        categotiaSelecionada = botao.dataset.categoria;
+        botoes.forEach(item => item.classList.remove('ativo'))
+        botao.classList.add("ativo")
+        mostrarJogos()
+    })
+})
+
 mostrarJogos();
-F
